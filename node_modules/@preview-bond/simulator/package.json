@@ -1,0 +1,10 @@
+{
+  "name": "@preview-bond/simulator",
+  "version": "0.1.0",
+  "main": "index.ts",
+  "types": "index.ts",
+  "dependencies": {
+    "@preview-bond/shared": "workspace:*",
+    "@solana/web3.js": "^1.87.0"
+  }
+}

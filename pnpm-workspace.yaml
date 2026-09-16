@@ -1,0 +1,11 @@
+packages:
+  - 'packages/*'
+  - 'apps/*'
+allowBuilds:
+  bufferutil: true
+  utf-8-validate: true
+  esbuild: true
+onlyBuiltDependencies:
+  - bufferutil
+  - utf-8-validate
+  - esbuild

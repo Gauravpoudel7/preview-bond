@@ -1,0 +1,11 @@
+{
+  "name": "preview-bond-api",
+  "version": "0.1.0",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "@preview-bond/shared": "workspace:*",
+    "@preview-bond/simulator": "workspace:*"
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "address": "5Tnm5YgwaL6XPMCGBMQfiwcNfLqNMurqxLJfrgovb2Bi",
+  "metadata": {
+    "name": "preview_bond",
+    "version": "0.1.0",
+    "spec": "0.1.0"
+  },
+  "instructions": [
+    {
+      "name": "initializeConfig",
+      "discriminator": [
+        208,
+        127,
+        21,
+        1,
+        194,
+        190,
+        196,
+        70
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "feeBps",
+          "type": "u16"
+        },
+        {
+          "name": "dailyCap",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "declareTx",
+      "discriminator": [
+        191,
+        109,
+        123,
+        51,
+        130,
+        70,
+        23,
+        157
+      ],
+      "accounts": [
+        {
+          "name": "bondAccount",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "provider"
+        },
+        {
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "txDigest",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "previewDigest",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "payoutCap",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "bondTx",
+      "discriminator": [
+        192,
+        215,
+        59,
+        4,
+        18,
+        207,
+        34,
+        196
+      ],
+      "accounts": [
+        {
+          "name": "bondAccount",
+          "writable": true
+        },
+        {
+          "name": "provider",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "verifyTx",
+      "discriminator": [
+        222,
+        134,
+        197,
+        30,
+        80,
+        29,
+        199,
+        219
+      ],
+      "accounts": [
+        {
+          "name": "bondAccount",
+          "writable": true
+        },
+        {
+          "name": "keeper",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "result",
+          "type": "bool"
+        },
+        {
+          "name": "evidenceHash",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "settleTx",
+      "discriminator": [
+        25,
+        71,
+        73,
+        85,
+        162,
+        156,
+        142,
+        117
+      ],
+      "accounts": [
+        {
+          "name": "bondAccount",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "adminOverride",
+      "discriminator": [
+        202,
+        25,
+        183,
+        61,
+        126,
+        45,
+        130,
+        115
+      ],
+      "accounts": [
+        {
+          "name": "bondAccount",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "newStatus",
+          "type": {
+            "defined": {
+              "name": "BondStatus"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [],
+  "types": [
+    {
+      "name": "BondStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Quoted"
+          },
+          {
+            "name": "Locked"
+          },
+          {
+            "name": "VerifiedMatch"
+          },
+          {
+            "name": "VerifiedMismatch"
+          },
+          {
+            "name": "Released"
+          },
+          {
+            "name": "ClaimPaid"
+          },
+          {
+            "name": "NotCovered"
+          },
+          {
+            "name": "EvidencePending"
+          },
+          {
+            "name": "Disputed"
+          },
+          {
+            "name": "Denied"
+          }
+        ]
+      }
+    }
+  ]
+}

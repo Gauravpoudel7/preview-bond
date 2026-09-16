@@ -1,0 +1,12 @@
+[programs.localnet]
+preview_bond = "5Tnm5YgwaL6XPMCGBMQfiwcNfLqNMurqxLJfrgovb2Bi"
+
+[registry]
+url = "https://api.mainnet-beta.solana.com"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[tools]
+anchor = "0.29.0"
