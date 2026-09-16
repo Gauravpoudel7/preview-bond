@@ -1,6 +1,6 @@
 # Verification Process
 
-**⚠️ IMPORTANT: NOT INSURANCE.** Preview Bond is a structural verification tool providing proofs of transaction integrity. It is NOT a financial insurance product and does not provide guaranteed monetary reimbursement for all types of losses.
+**⚠️ IMPORTANT: NOT INSURANCE.** Preview Bond is a structural verification tool providing proofs of transaction integrity. It is **not** a financial insurance product.
 
 The goal of verification is to deterministically prove whether a transaction's actual execution matched its simulated preview.
 
@@ -36,11 +36,13 @@ Verification is a comparison between two states:
 - **Logic**: The Keeper checks the primary program ID of the transaction. If it differs from the one declared in the `DECLARE` phase, it is a violation.
 - **Evidence**: `Expected: ProgA, Actual: ProgB`.
 
-## 3. Edge Cases & False Positives
+## 3. Scope Boundaries
 
-### Token-2022 Support
-- **Current Status**: Unsupported by default in v1.
-- **Behavior**: Transactions using Token-2022 extensions that modify structural state may be rejected or marked as `NOT_COVERED` to avoid false positives.
+### ❌ NOT Covered
+To avoid false positives and maintain sustainability, the following are strictly excluded:
+- **Market Slippage**: If the user receives fewer tokens than expected due to price movement, but the structure is honest $\rightarrow$ `MATCH`.
+- **Wallet Compromise**: Loss due to private key theft or seed phrase leak.
+- **User Negligence**: Drains that were already explicitly shown in the simulation preview.
 
 ### Harmless Mismatches
 A mismatch does **not** automatically trigger a status change to `ClaimPaid`. 

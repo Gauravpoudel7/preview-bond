@@ -1,5 +1,7 @@
 # Coverage Specification
 
+**⚠️ IMPORTANT: NOT INSURANCE.** Preview Bond is a structural verification tool. The current hackathon proof is **status-only** on localnet (Program ID: `5Tnm5YgwaL6XPMCGBMQfiwcNfLqNMurqxLJfrgovb2Bi`), proving the state machine without executing real token transfers.
+
 This document defines the technical requirements for a "Covered Event" and the conditions under which a bond payout is triggered.
 
 ## 1. The Coverage Receipt
